@@ -104,12 +104,12 @@ document.querySelector(".slider").addEventListener("click", (evt) => {
 
 tasksList.addEventListener(`touchstart`, (event) => {
     event.currentTarget.style.cursor = "grab";
-    startX = event.pageX;
+    startX = event.touches[0].pageY;
 });
 
 tasksList.addEventListener(`touchend`, (event) => {
-    alert(startX, event.pageX);
-    if (event.pageX - startX > 0) {
+    alert(startX, event.touches[0].pageY);
+    if (event.touches[0].pageY - startX > 0) {
         slide_index--;
     } else {
         slide_index++;

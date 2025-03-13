@@ -1,66 +1,66 @@
-const slider = document.querySelector(".slider__wrap");
-const slider_set = document.querySelector(".slider__cont");
-const but_prev = document.querySelector(".slider__but-prev");
-const but_next = document.querySelector(".slider__but-next");
-let slides_number = Array.from(slider.querySelectorAll(".slide")).length;
+// const slider = document.querySelector(".slider__wrap");
+// const slider_set = document.querySelector(".slider__cont");
+// const but_prev = document.querySelector(".slider__but-prev");
+// const but_next = document.querySelector(".slider__but-next");
+let slides_number = Array.from(
+    document.querySelectorAll(".slide__list .slide")
+).length;
 let slide_index = 0;
 
-function moveSlider() {
-    slider_set.style.transform = `translateX(${
-        -slide_index * slider.clientWidth
-    }px)`;
-}
+// function moveSlider() {
+//     slider_set.style.transform = `translateX(${
+//         -slide_index * slider.clientWidth
+//     }px)`;
+// }
 
-slider.addEventListener("click", (evt) => {
-    if (evt.target.classList.contains("slider__but-prev")) {
-        if (slide_index == 0) {
-            slide_index = slides_number - 1;
-        } else {
-            slide_index--;
-        }
-    } else if (evt.target.classList.contains("slider__but-next")) {
-        if (slide_index == slides_number - 1) {
-            slide_index = 0;
-        } else {
-            slide_index++;
-        }
-    } else {
-        return;
-    }
-    moveSlider();
-});
+// slider.addEventListener("click", (evt) => {
+//     if (evt.target.classList.contains("slider__but-prev")) {
+//         if (slide_index == 0) {
+//             slide_index = slides_number - 1;
+//         } else {
+//             slide_index--;
+//         }
+//     } else if (evt.target.classList.contains("slider__but-next")) {
+//         if (slide_index == slides_number - 1) {
+//             slide_index = 0;
+//         } else {
+//             slide_index++;
+//         }
+//     } else {
+//         return;
+//     }
+//     moveSlider();
+// });
 
-window.addEventListener("load", moveSlider);
-window.addEventListener("resize", moveSlider);
+// window.addEventListener("load", moveSlider);
+// window.addEventListener("resize", moveSlider);
 /*=====================================================*/
 
-slider_set.draggble = true;
-slider_set.style.left = 0;
+// slider_set.draggble = true;
 
-let start_X = 0;
+// let start_X = 0;
 
-slider_set.addEventListener(`dragstart`, (event) => {
-    event.currentTarget.style.cursor = "grab";
-    start_X = event.clientX;
-});
+// slider_set.addEventListener(`dragstart`, (event) => {
+//     event.currentTarget.style.cursor = "grab";
+//     start_X = event.clientX;
+// });
 
-slider_set.addEventListener(`dragend`, (event) => {
-    if (event.clientX - startX > 0) {
-        slider_set.style.left = parseInt(slider_set.style.left) + 500 + "px";
-        slide_index++;
-    } else {
-        slider_set.style.left = parseInt(slider_set.style.left) - 500 + "px";
-        slide_index--;
-    }
-});
+// slider_set.addEventListener(`dragend`, (event) => {
+//     if (event.clientX - startX > 0) {
+//         slide_index++;
+//     } else {
+//         slide_index--;
+//     }
+//     moveSlider();
+// });
 
 /*=========================================*/
 
-let tasksList = document.querySelector(`.tasks__list`);
+let tasksList = document.querySelector(`.slider .slide__list`);
 // let taskElements = tasksList.querySelectorAll(`.tasks__item`);
 
-let width = 880;
-let gap = 30;
+// let width = 880;
+// let gap = 30;
 let startX;
 
 tasksList.style.left = 0;
@@ -76,15 +76,13 @@ tasksList.addEventListener(`dragstart`, (event) => {
 
 tasksList.addEventListener(`dragend`, (event) => {
     if (event.clientX - startX > 0) {
-        tasksList.style.left =
-            parseInt(tasksList.style.left) + (width + gap) + "px";
+        tasksList.style.left = parseInt(tasksList.style.left) + 100 + "vw";
     } else {
-        tasksList.style.left =
-            parseInt(tasksList.style.left) - (width + gap) + "px";
+        tasksList.style.left = parseInt(tasksList.style.left) - 100 + "vw";
     }
 });
 
-document.querySelector(".frame").addEventListener("click", (evt) => {
+document.querySelector(".slider").addEventListener("click", (evt) => {
     if (evt.target.classList.contains("slider__but-prev")) {
         if (slide_index == 0) {
             slide_index = slides_number - 1;
@@ -101,4 +99,64 @@ document.querySelector(".frame").addEventListener("click", (evt) => {
         return;
     }
     tasksList.style.left = -(width + gap) * slide_index + "px";
+});
+
+tasksList.addEventListener(`touchstart`, (event) => {
+    event.currentTarget.style.cursor = "grab";
+    startX = event.clientX;
+});
+
+tasksList.addEventListener(`touchend`, (event) => {
+    if (event.clientX - startX > 0) {
+        tasksList.style.left = parseInt(tasksList.style.left) + 100 + "vw";
+    } else {
+        tasksList.style.left = parseInt(tasksList.style.left) - 100 + "vw";
+    }
+});
+
+/*=========================================*/
+
+let tasksList2 = document.querySelector(`.slider2 .slide__list`);
+// let taskElements = tasksList.querySelectorAll(`.tasks__item`);
+
+let startX2;
+let index = 0;
+
+tasksList2.style.transform = "translateX(0)";
+tasksList2.draggable = true;
+
+tasksList2.addEventListener(`dragstart`, (event) => {
+    event.currentTarget.style.cursor = "grab";
+    startX2 = event.clientX;
+});
+
+tasksList2.addEventListener(`dragend`, (event) => {
+    if (event.clientX - startX2 > 0) {
+        index++;
+    } else {
+        index--;
+    }
+    tasksList2.style.transform = `translateX(${830 * index}px)`;
+});
+
+document.querySelector(".slider2").addEventListener("click", (evt) => {
+    console.log("click");
+    if (evt.target.classList.contains("slider__but-prev")) {
+        console.log("click prev");
+        if (index == 0) {
+            index = slides_number - 1;
+        } else {
+            index++;
+        }
+    } else if (evt.target.classList.contains("slider__but-next")) {
+        console.log("click next");
+        if (index == slides_number - 1) {
+            index = 0;
+        } else {
+            index--;
+        }
+    } else {
+        return;
+    }
+    tasksList2.style.transform = `translateX(${830 * index}px)`;
 });

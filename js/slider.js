@@ -76,10 +76,11 @@ tasksList.addEventListener(`dragstart`, (event) => {
 
 tasksList.addEventListener(`dragend`, (event) => {
     if (event.clientX - startX > 0) {
-        tasksList.style.left = parseInt(tasksList.style.left) + 100 + "vw";
+        slide_index--;
     } else {
-        tasksList.style.left = parseInt(tasksList.style.left) - 100 + "vw";
+        slide_index++;
     }
+    tasksList.style.left = `${-100 * slide_index}vw`;
 });
 
 document.querySelector(".slider").addEventListener("click", (evt) => {
@@ -98,7 +99,7 @@ document.querySelector(".slider").addEventListener("click", (evt) => {
     } else {
         return;
     }
-    tasksList.style.left = -(width + gap) * slide_index + "px";
+    tasksList.style.left = `${-100 * slide_index}vw`;
 });
 
 tasksList.addEventListener(`touchstart`, (event) => {
@@ -108,10 +109,11 @@ tasksList.addEventListener(`touchstart`, (event) => {
 
 tasksList.addEventListener(`touchend`, (event) => {
     if (event.clientX - startX > 0) {
-        tasksList.style.left = parseInt(tasksList.style.left) + 100 + "vw";
+        slide_index--;
     } else {
-        tasksList.style.left = parseInt(tasksList.style.left) - 100 + "vw";
+        slide_index++;
     }
+    tasksList.style.left = `${-100 * slide_index}vw`;
 });
 
 /*=========================================*/
@@ -142,14 +144,12 @@ tasksList2.addEventListener(`dragend`, (event) => {
 document.querySelector(".slider2").addEventListener("click", (evt) => {
     console.log("click");
     if (evt.target.classList.contains("slider__but-prev")) {
-        console.log("click prev");
         if (index == 0) {
             index = slides_number - 1;
         } else {
             index++;
         }
     } else if (evt.target.classList.contains("slider__but-next")) {
-        console.log("click next");
         if (index == slides_number - 1) {
             index = 0;
         } else {

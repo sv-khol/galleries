@@ -108,7 +108,8 @@ tasksList.addEventListener(`touchstart`, (event) => {
 });
 
 tasksList.addEventListener(`touchend`, (event) => {
-    if (event.clientX - startX > 0) {
+    alert(startX, event.pageX);
+    if (event.pageX - startX > 0) {
         slide_index--;
     } else {
         slide_index++;

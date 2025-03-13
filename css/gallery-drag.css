@@ -1,0 +1,51 @@
+.pos {}
+
+.wrap {
+    max-width: 1200px;
+    width: 80%;
+    margin: 0 auto;
+    padding: 1px;
+}
+
+.drag__visible {
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.drag__flex {
+    display: flex;
+    gap: 30px;
+    position: relative;
+    left: 0;
+    top: 0;
+    z-index: 1;
+
+}
+
+.drag__item {
+    min-width: 25vw;
+    height: 25vw;
+    background-color: rgb(56, 54, 212);
+    border-radius: 5vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+    color: white;
+}
+
+.progress {
+    height: 3px;
+    background-color: rgb(99, 99, 99);
+    position: relative;
+    margin: 30px 0;
+}
+
+.pos {
+    height: 3px;
+    width: 23vw;
+    background-color: rgb(61, 42, 230);
+    position: absolute;
+    top: 0;
+    left: 0;
+}

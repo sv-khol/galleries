@@ -1,0 +1,140 @@
+.header {
+    background-image: url("../img/banner-bg.jpg");
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: cover;
+    position: relative;
+    padding: var(--gap) 0;
+    height: 100vh;
+}
+
+.header * {
+    position: relative;
+    z-index: 1;
+    color: white;
+}
+
+.header::after {
+    content: "";
+    display: block;
+    background-color: #ad6b2c;
+    opacity: 0.65;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+/*.col-title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 50px;
+    height: calc(100vh - 50px - 25px * 2);
+  }*/
+
+.col-h {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: calc(100vh - var(--gap) * 2);
+}
+
+.row-h {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.col-title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 65vh;
+}
+
+.header-logo {
+    height: 50px;
+}
+
+.menu {
+    position: relative;
+}
+
+.menu-list {
+    display: flex;
+    gap: var(--gap);
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu-list a {
+    cursor: pointer;
+    font-size: 10px;
+    text-transform: uppercase;
+    padding: 10px 0;
+}
+
+.menu-list a:hover {
+    color: #ffde22;
+}
+
+.welcome-title {
+    width: 65%;
+    text-transform: uppercase;
+    font-size: 34px;
+    line-height: 60px;
+    text-align: center;
+}
+
+.sub-title {
+    font-size: 24px;
+    text-align: center;
+}
+
+.but-dwn {
+    font-size: 50px;
+    margin-top: auto;
+}
+
+.but-menu {
+    display: none;
+    font-size: 20px;
+}
+
+
+
+
+@media screen and (max-width: 600px) {
+    .but-menu {
+        display: block;
+    }
+
+    .row-h {
+        z-index: 2;
+    }
+
+    .menu-list {
+        display: none;
+        position: absolute;
+        top: 50px;
+        right: 0;
+        padding: 20px;
+        background-color: rgba(70, 38, 12, 0.7);
+        border-radius: 20px;
+    }
+
+    .show {
+        display: block;
+    }
+
+    .welcome-title {
+        font-size: 24px;
+        line-height: 40px;
+    }
+}

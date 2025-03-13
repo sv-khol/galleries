@@ -1,0 +1,62 @@
+:root {
+    --gap: 20px;
+
+    --col-blue: #0e5b9a;
+    --col-green: #57bc77;
+
+    --txt-size: 14px;
+    --h1-size: 4rem;
+    --h2-size: 2rem;
+    @media screen and (max-width: 1200px) {
+        --h1-size: 3.4rem;
+        --h2-size: 1.8rem;
+    }
+    @media screen and (max-width: 720px) {
+        --h1-size: 2rem;
+        --h2-size: 1.3rem;
+    }
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, Arial, sans-serif;
+    font-size: 14px;
+    width: 100vw;
+    overflow-x: hidden;
+}
+
+.h1 {
+    font-family: "Roboto Condensed", sans-serif;
+    color: var(--col-blue);
+    font-size: var(--h1-size);
+}
+
+.h2 {
+    font-family: "Roboto Condensed", sans-serif;
+    color: var(--col-blue);
+    font-size: var(--h2-size);
+}
+
+.p {
+    font-family: "Roboto", sans-serif;
+    color: black;
+    font-size: var(--txt-size);
+}
+
+.button {
+    padding: calc(var(--gap) / 2) var(--gap);
+    &:hover {
+        border-color: var(--col-blue);
+    }
+}
+
+.no-select {
+    -webkit-user-select: none; /* Chrome/Safari */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE/Edge */
+    user-select: none; /* Стандартный синтаксис */
+}

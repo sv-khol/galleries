@@ -1,0 +1,76 @@
+@charset "utf-8";
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.gall {
+    text-align: center;
+}
+
+.prev,
+.next {
+    color: var(--gold);
+    font-size: 20px;
+}
+
+.photos {
+    margin: var(--gap) auto;
+    position: relative;
+    height: 400px;
+    overflow: hidden;
+}
+
+.im {
+    width: 100%;
+    position: absolute;
+    left: 0;
+    opacity: 0;
+    transition: opacity 1s;
+}
+
+.txt {
+    position: absolute;
+    bottom: 20px;
+    left: 30px;
+    color: white;
+}
+
+.shown {
+    opacity: 1;
+}
+
+.number {
+    color: white;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 20px;
+}
+
+.dot {
+    background-color: var(--gold);
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin: 3px;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.red {
+    background-color: red;
+}
+
+#buttons {
+    text-align: center;
+}
+
+@media screen and (max-width: 750px) {
+    .im {
+        width: auto;
+        height: 100%;
+    }
+}

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <!-- META -->
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="author" content='ООО "Нав Девелопмент Ко"' />
+
+        <title>НавДК</title>
+        <link href="<?= IMAGE_DIR ?>favicon.png" rel="icon" />
+
+        <!-- STYLE -->
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&family=Roboto:wght@100;300;400;700&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="./css/land.css" />
+        <style>
+            .frame {
+                width: 100%;
+                overflow: hidden;
+                position: relative;
+                margin: 100px 0;
+            }
+
+            .tasks__list {
+                display: flex;
+                gap: 30px;
+                position: relative;
+                left: 0;
+                top: 0;
+                transition: left 2s ease-out;
+            }
+
+            .tasks__item {
+                flex-shrink: 0;
+                min-width: 800px;
+                height: 500px;
+                background-color: #40b162;
+                padding: 50px;
+            }
+
+            .selected {
+                opacity: 0.6;
+                cursor: grab;
+            }
+        </style>
+    </head>
+
+    <body>
+        <section id="home" class="slider">
+            <div class="slider__wrap">
+                <button class="slider__but slider__but-prev"></button>
+                <div class="slider__cont">
+                    <div class="slide">
+                        <h2 class="slide__title h1">
+                            <span>НавДК </span>
+                        </h2>
+                        <h3 class="slide__subtitle h2">
+                            морское<span> навигационное</span> программное
+                            обеспечение
+                        </h3>
+                        <p class="slider__text p">
+                            Электронные картографические системы dKart
+                        </p>
+                        <a href="#about" class="slide__but button"
+                            >читать далее</a
+                        >
+                    </div>
+                    <div class="slide">
+                        <h2 class="slide__title h1">
+                            dKart <span>Port Monitoring</span>
+                        </h2>
+                        <h3 class="slide__subtitle h2">
+                            диспетчерская <span>портовая</span> система
+                        </h3>
+                        <p class="slider__text p">
+                            Электронные картографические системы dKart
+                        </p>
+                        <a href="#about" class="slide__but button"
+                            >читать далее</a
+                        >
+                    </div>
+                    <div class="slide">
+                        <h2 class="slide__title h1">dKart <span>ECS</span></h2>
+                        <h3 class="slide__subtitle h2">
+                            Семейство электронных картографических систем
+                        </h3>
+                        <p class="slider__text p">
+                            Электронные картографические системы dKart
+                        </p>
+                        <a href="#about" class="slide__but button"
+                            >читать далее</a
+                        >
+                    </div>
+                </div>
+                <button class="slider__but slider__but-next"></button>
+            </div>
+        </section>
+
+        <section>
+            <div class="frame">
+                <button class="slider__but slider__but-prev"></button>
+                <div class="tasks__list">
+                    <div class="tasks__item">
+                        <h2 class="slide__title h1">
+                            <span>НавДК </span>
+                        </h2>
+                        <h3 class="slide__subtitle h2">
+                            морское<span> навигационное</span> программное
+                            обеспечение
+                        </h3>
+                        <p class="slider__text p">
+                            Электронные картографические системы dKart
+                        </p>
+                        <a href="#about" class="slide__but button"
+                            >читать далее</a
+                        >
+                    </div>
+                    <div class="tasks__item">
+                        <h2 class="slide__title h1">
+                            dKart <span>Port Monitoring</span>
+                        </h2>
+                        <h3 class="slide__subtitle h2">
+                            диспетчерская <span>портовая</span> система
+                        </h3>
+                        <p class="slider__text p">
+                            Электронные картографические системы dKart
+                        </p>
+                        <a href="#about" class="slide__but button"
+                            >читать далее</a
+                        >
+                    </div>
+                    <div class="tasks__item">
+                        <h2 class="slide__title h1">dKart <span>ECS</span></h2>
+                        <h3 class="slide__subtitle h2">
+                            Семейство электронных картографических систем
+                        </h3>
+                        <p class="slider__text p">
+                            Электронные картографические системы dKart
+                        </p>
+                        <a href="#about" class="slide__but button"
+                            >читать далее</a
+                        >
+                    </div>
+                </div>
+                <button class="slider__but slider__but-next"></button>
+            </div>
+        </section>
+
+        <script src="./js/slider.js"></script>
+    </body>
+</html>

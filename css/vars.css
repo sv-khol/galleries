@@ -1,0 +1,11 @@
+:root {
+    --gold: #b69f5b;
+    --light-grey: #e2e2e2;
+    --cream-bg: rgb(250, 235, 215);
+
+    --gap: 25px;
+    --col1: calc((100% - 11 * var(--gap)) / 12);
+    --col2: calc(2 * (100% - 11 * var(--gap)) / 12 + var(--gap));
+    --col3: calc(3 * (100% - 11 * var(--gap)) / 12 + 2 * var(--gap));
+    --col4: calc(4 * (100% - 11 * var(--gap)) / 12 + 3 * var(--gap));
+}

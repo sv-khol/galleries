@@ -104,7 +104,7 @@ document.querySelector(".slider").addEventListener("click", (evt) => {
 
 tasksList.addEventListener(`touchstart`, (event) => {
     event.currentTarget.style.cursor = "grab";
-    startX = event.clientX;
+    startX = event.pageX;
 });
 
 tasksList.addEventListener(`touchend`, (event) => {

@@ -105,12 +105,17 @@ document.querySelector(".slider").addEventListener("click", (evt) => {
 
 tasksList.addEventListener(`touchstart`, (event) => {
     event.currentTarget.style.cursor = "grab";
-    startX = event.touches[0].pageY;
+    startX = event.touches[0].pageX;
 });
 
 tasksList.addEventListener(`touchend`, (event) => {
-    alert(startX, event.touches[0].pageY);
-    if (event.touches[0].pageY - startX > 0) {
+    document.querySelector(".data").innerHTML =
+        parseInt(event.changedTouches[0].pageX) +
+        "  " +
+        startX +
+        "  " +
+        event.touches[0].pageX;
+    if (event.touches[0].pageX - startX > 0) {
         slide_index--;
     } else {
         slide_index++;

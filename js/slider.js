@@ -75,6 +75,7 @@ tasksList.addEventListener(`dragstart`, (event) => {
 });
 
 tasksList.addEventListener(`dragend`, (event) => {
+    console.dir(event);
     if (event.clientX - startX > 0) {
         slide_index--;
     } else {
@@ -108,6 +109,7 @@ tasksList.addEventListener(`touchstart`, (event) => {
 });
 
 tasksList.addEventListener(`touchend`, (event) => {
+    alert(event);
     alert(startX, event.touches[0].pageY);
     if (event.touches[0].pageY - startX > 0) {
         slide_index--;

@@ -198,6 +198,7 @@ slider.addEventListener("touchmove", (event) => {
     alert("По мне ведут пальцем");
 });
 slider.addEventListener(`touchend`, (event) => {
+    alert("end");
     document.querySelector(".data").innerHTML =
         parseInt(event.changedTouches[0].pageX) +
         "  " +

@@ -13,17 +13,11 @@
         />
         <link rel="stylesheet" href="./css/land.css" />
         <style>
-            .slider,
-            .slider2 {
+            .slider {
                 width: 100%;
                 overflow: hidden;
                 position: relative;
                 margin: 100px 0;
-            }
-            .slider2 {
-                width: 70%;
-                margin: 0 auto;
-                padding: 0 100px;
             }
 
             .slide__list {
@@ -32,6 +26,8 @@
                 position: relative;
                 left: 0;
                 top: 0;
+            }
+            .tr {
                 transition: left 2s ease-out;
             }
 
@@ -65,10 +61,8 @@
             <div class="slider">
                 <button class="slider__but slider__but-prev"></button>
                 <div class="slide__list">
-                    <div class="slide">
-                        <h2 class="slide__title h1">
-                            <span>НавДК </span>
-                        </h2>
+                    <div class="slide s1">
+                        <h2 class="slide__title h1">1 НавДК</h2>
                         <h3 class="slide__subtitle h2">
                             морское<span> навигационное</span> программное
                             обеспечение
@@ -80,10 +74,8 @@
                             >читать далее</a
                         >
                     </div>
-                    <div class="slide">
-                        <h2 class="slide__title h1">
-                            dKart <span>Port Monitoring</span>
-                        </h2>
+                    <div class="slide s2">
+                        <h2 class="slide__title h1">2 dKart Port Monitoring</h2>
                         <h3 class="slide__subtitle h2">
                             диспетчерская <span>портовая</span> система
                         </h3>
@@ -94,8 +86,8 @@
                             >читать далее</a
                         >
                     </div>
-                    <div class="slide">
-                        <h2 class="slide__title h1">dKart <span>ECS</span></h2>
+                    <div class="slide s3">
+                        <h2 class="slide__title h1">3dKart ECS</h2>
                         <h3 class="slide__subtitle h2">
                             Семейство электронных картографических систем
                         </h3>
@@ -110,57 +102,6 @@
                 <button class="slider__but slider__but-next"></button>
             </div>
         </section>
-
-        <section>
-            <div class="slider2">
-                <button class="slider__but slider__but-prev"></button>
-                <div class="slide__list">
-                    <div class="slide">
-                        <h2 class="slide__title h1">
-                            <span>НавДК </span>
-                        </h2>
-                        <h3 class="slide__subtitle h2">
-                            морское<span> навигационное</span> программное
-                            обеспечение
-                        </h3>
-                        <p class="slider__text p">
-                            Электронные картографические системы dKart
-                        </p>
-                        <a href="#about" class="slide__but button"
-                            >читать далее</a
-                        >
-                    </div>
-                    <div class="slide">
-                        <h2 class="slide__title h1">
-                            dKart <span>Port Monitoring</span>
-                        </h2>
-                        <h3 class="slide__subtitle h2">
-                            диспетчерская <span>портовая</span> система
-                        </h3>
-                        <p class="slider__text p">
-                            Электронные картографические системы dKart
-                        </p>
-                        <a href="#about" class="slide__but button"
-                            >читать далее</a
-                        >
-                    </div>
-                    <div class="slide">
-                        <h2 class="slide__title h1">dKart <span>ECS</span></h2>
-                        <h3 class="slide__subtitle h2">
-                            Семейство электронных картографических систем
-                        </h3>
-                        <p class="slider__text p">
-                            Электронные картографические системы dKart
-                        </p>
-                        <a href="#about" class="slide__but button"
-                            >читать далее</a
-                        >
-                    </div>
-                </div>
-                <button class="slider__but slider__but-next"></button>
-            </div>
-        </section>
-
-        <script src="./js/slider.js"></script>
+        <script src="./js/slider2.js"></script>
     </body>
 </html>

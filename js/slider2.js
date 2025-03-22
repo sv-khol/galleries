@@ -165,7 +165,6 @@ slide_list.addEventListener(`dragend`, (event) => {
             dots[slide_index - 1].classList.add("red");
         }
     } else {
-        // slide_index++;
         if (slide_index == slides_number) {
             (async () => {
                 slide_index++;
@@ -190,12 +189,15 @@ slide_list.addEventListener(`dragend`, (event) => {
 });
 
 /*=============== TOUCH ==========================*/
-slide_list.addEventListener(`touchstart`, (event) => {
+slider.addEventListener(`touchstart`, (event) => {
+    alert("start");
     event.currentTarget.style.cursor = "grab";
     startX = event.touches[0].pageX;
 });
-
-slide_list.addEventListener(`touchend`, (event) => {
+slider.addEventListener("touchmove", (event) => {
+    alert("По мне ведут пальцем");
+});
+slider.addEventListener(`touchend`, (event) => {
     document.querySelector(".data").innerHTML =
         parseInt(event.changedTouches[0].pageX) +
         "  " +

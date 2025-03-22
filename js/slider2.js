@@ -199,7 +199,7 @@ slider.addEventListener("touchmove", (event) => {
 });
 slider.addEventListener(`touchend`, (event) => {
     document.querySelector(".data").innerHTML +=
-        parseInt(event.changedTouches[0].pageX) +
+        event.changedTouches[0].clientX +
         "  " +
         startX +
         "  " +

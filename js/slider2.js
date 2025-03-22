@@ -189,21 +189,25 @@ slide_list.addEventListener(`dragend`, (event) => {
 });
 
 /*=============== TOUCH ==========================*/
-slider.addEventListener(`touchstart`, (event) => {
+slide__list.addEventListener(`touchstart`, (event) => {
+    event.stopPropagation();
     event.currentTarget.style.cursor = "grab";
     startX = event.changedTouches[0].clientX;
     // alert("start 2", startX);
 });
-slider.addEventListener("touchmove", (event) => {
-    // alert("По мне ведут пальцем");
-});
-slider.addEventListener(`touchend`, (event) => {
+// slider.addEventListener("touchmove", (event) => {
+//     alert("По мне ведут пальцем");
+// });
+slide__list.addEventListener(`touchend`, (event) => {
+    event.stopPropagation();
     if (event.changedTouches[0].clientX - startX < 0) {
         slide_index++;
     } else {
         slide_index--;
     }
     moveSlider();
-    alert(event.changedTouches[0].clientX);
-    alert(startX);
+    clear();
+    dots[slide_index - 1].classList.add("red");
+    // alert(event.changedTouches[0].clientX);
+    // alert(startX);
 });

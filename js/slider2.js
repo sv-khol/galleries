@@ -10,7 +10,7 @@ let slide_index = 1;
 let gap = 30;
 moveSliderSilent();
 
-let startX;
+let startX = 0;
 
 /*=============== ADD DOP SLIDES ======================================*/
 const dop0 = Array.from(

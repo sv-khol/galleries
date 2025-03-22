@@ -192,7 +192,7 @@ slide_list.addEventListener(`dragend`, (event) => {
 slider.addEventListener(`touchstart`, (event) => {
     event.currentTarget.style.cursor = "grab";
     startX = event.touches[0].pageX;
-    alert("start", startX);
+    alert("start 2", startX);
 });
 slider.addEventListener("touchmove", (event) => {
     alert("По мне ведут пальцем");

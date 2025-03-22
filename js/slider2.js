@@ -190,7 +190,7 @@ slide_list.addEventListener(`dragend`, (event) => {
 
 /*=============== TOUCH ==========================*/
 slide__list.addEventListener(`touchstart`, (event) => {
-    event.stopPropagation();
+    event.preventDefault();
     event.currentTarget.style.cursor = "grab";
     startX = event.changedTouches[0].clientX;
     // alert("start 2", startX);
@@ -199,7 +199,7 @@ slide__list.addEventListener(`touchstart`, (event) => {
 //     alert("По мне ведут пальцем");
 // });
 slide__list.addEventListener(`touchend`, (event) => {
-    event.stopPropagation();
+    event.preventDefault();
     if (event.changedTouches[0].clientX - startX < 0) {
         slide_index++;
     } else {

@@ -189,15 +189,15 @@ slide_list.addEventListener(`dragend`, (event) => {
 });
 
 /*=============== TOUCH ==========================*/
-slider.addEventListener(`touchstart`, (event) => {
+slide__list.addEventListener(`touchstart`, (event) => {
     event.currentTarget.style.cursor = "grab";
     startX = event.changedTouches[0].clientX;
     // alert("start 2", startX);
 });
-slider.addEventListener("touchmove", (event) => {
+slide__list.addEventListener("touchmove", (event) => {
     // alert("По мне ведут пальцем");
 });
-slider.addEventListener(`touchend`, (event) => {
+slide__list.addEventListener(`touchend`, (event) => {
     if (event.changedTouches[0].clientX - startX < 0) {
         slide_index++;
     } else {

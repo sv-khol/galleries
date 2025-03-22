@@ -190,7 +190,6 @@ slide_list.addEventListener(`dragend`, (event) => {
 
 /*=============== TOUCH ==========================*/
 slider.addEventListener(`touchstart`, (event) => {
-    alert("start");
     event.currentTarget.style.cursor = "grab";
     startX = event.touches[0].pageX;
     alert("start", startX);
@@ -200,16 +199,16 @@ slider.addEventListener("touchmove", (event) => {
 });
 slider.addEventListener(`touchend`, (event) => {
     alert("end");
-    document.querySelector(".data").innerHTML =
-        parseInt(event.changedTouches[0].pageX) +
-        "  " +
-        startX +
-        "  " +
-        event.touches[0].pageX;
-    if (event.touches[0].pageX - startX > 0) {
-        slide_index--;
-    } else {
-        slide_index++;
-    }
+    // document.querySelector(".data").innerHTML =
+    //     parseInt(event.changedTouches[0].pageX) +
+    //     "  " +
+    //     startX +
+    //     "  " +
+    //     event.touches[0].pageX;
+    // if (event.touches[0].pageX - startX > 0) {
+    //     slide_index--;
+    // } else {
+    //     slide_index++;
+    // }
     moveSlider();
 });

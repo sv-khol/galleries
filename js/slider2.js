@@ -205,10 +205,11 @@ slider.addEventListener(`touchend`, (event) => {
     //     startX +
     //     "  " +
     //     event.touches[0].pageX;
-    if (event.touches[0].pageX - startX > 0) {
-        slide_index--;
-    } else {
-        slide_index++;
-    }
+    // if (event.touches[0].pageX - startX > 0) {
+    //     slide_index--;
+    // } else {
+    //     slide_index++;
+    // }
+    slide_index++;
     moveSlider();
 });

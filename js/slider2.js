@@ -191,7 +191,7 @@ slide_list.addEventListener(`dragend`, (event) => {
 /*=============== TOUCH ==========================*/
 slider.addEventListener(`touchstart`, (event) => {
     event.currentTarget.style.cursor = "grab";
-    startX = event.touches[0].pageX;
+    startX = event.touches[0].clientX;
     // alert("start 2", startX);
 });
 slider.addEventListener("touchmove", (event) => {
@@ -212,7 +212,6 @@ slider.addEventListener(`touchend`, (event) => {
     slide_index++;
     moveSlider();
     alert("end");
-    alert(event.touches[0].pageX);
-    alert(event.touches);
-    alert("end " + event.touches[0].pageX + "   " + startX);
+    alert(event.touches[0].clientX);
+    alert("end " + event.touches[0].clientX + "   " + startX);
 });

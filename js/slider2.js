@@ -213,5 +213,5 @@ slider.addEventListener(`touchend`, (event) => {
     moveSlider();
     alert("end");
     alert(event.changedTouches[0].clientX);
-    alert("end " + event.touches[0].clientX + "   " + startX);
+    alert(startX);
 });

@@ -196,14 +196,20 @@ slider.addEventListener(`touchstart`, (event) => {
 });
 slider.addEventListener("touchmove", (event) => {
     // alert("По мне ведут пальцем");
+    document.querySelector(".data").innerHTML +=
+        parseInt(event.changedTouches[0].pageX) +
+        "  " +
+        startX +
+        "  " +
+        event.touches[0].pageX;
 });
 slider.addEventListener(`touchend`, (event) => {
-    // document.querySelector(".data").innerHTML =
-    //     parseInt(event.changedTouches[0].pageX) +
-    //     "  " +
-    //     startX +
-    //     "  " +
-    //     event.touches[0].pageX;
+    document.querySelector(".data").innerHTML +=
+        parseInt(event.changedTouches[0].pageX) +
+        "  " +
+        startX +
+        "  " +
+        event.touches[0].pageX;
     // if (event.touches[0].pageX - startX > 0) {
     //     slide_index--;
     // } else {

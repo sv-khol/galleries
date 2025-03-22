@@ -198,12 +198,12 @@ slider.addEventListener("touchmove", (event) => {
     // alert("По мне ведут пальцем");
 });
 slider.addEventListener(`touchend`, (event) => {
-    document.querySelector(".data").innerHTML +=
-        event.changedTouches[0].clientX +
-        "  " +
-        startX +
-        "  " +
-        event.touches[0].pageX;
+    // document.querySelector(".data").innerHTML +=
+    //     event.changedTouches[0].clientX +
+    //     "  " +
+    //     startX +
+    //     "  " +
+    //     event.touches[0].pageX;
     // if (event.touches[0].pageX - startX > 0) {
     //     slide_index--;
     // } else {

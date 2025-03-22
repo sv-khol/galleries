@@ -211,5 +211,8 @@ slider.addEventListener(`touchend`, (event) => {
     // }
     slide_index++;
     moveSlider();
+    alert("end");
+    alert(event.touches[0].pageX);
+    alert(event.touches);
     alert("end " + event.touches[0].pageX + "   " + startX);
 });

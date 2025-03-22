@@ -195,10 +195,9 @@ slider.addEventListener(`touchstart`, (event) => {
     // alert("start 2", startX);
 });
 slider.addEventListener("touchmove", (event) => {
-    alert("По мне ведут пальцем");
+    // alert("По мне ведут пальцем");
 });
 slider.addEventListener(`touchend`, (event) => {
-    alert("end");
     // document.querySelector(".data").innerHTML =
     //     parseInt(event.changedTouches[0].pageX) +
     //     "  " +
@@ -212,4 +211,5 @@ slider.addEventListener(`touchend`, (event) => {
     // }
     slide_index++;
     moveSlider();
+    alert("end " + event.touches[0].pageX + "   " + startX);
 });

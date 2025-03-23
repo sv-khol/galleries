@@ -200,10 +200,10 @@ slider.addEventListener(`touchstart`, (event) => {
 slider.addEventListener(`touchend`, (event) => {
     alert(event.target.className);
 
-    if ((event.target.classList.contains = "slider__but-prev")) {
+    if (event.target.classList.contains == "slider__but-prev") {
         slide_index--;
         alert("prev");
-    } else if ((event.target.classList.contains = "slider__but-next")) {
+    } else if (event.target.classList.contains == "slider__but-next") {
         slide_index++;
         alert("next");
     } else {

@@ -103,6 +103,7 @@ document.querySelector(".slider").addEventListener("click", (evt) => {
             dots[slide_index - 1].classList.add("red");
         }
     } else if (evt.target.classList.contains("slider__but-next")) {
+        console.log("but click");
         if (flag) {
             console.log(flag);
             moveSliderSilent();

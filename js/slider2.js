@@ -207,6 +207,7 @@ slider.addEventListener(`touchend`, (event) => {
         alert("next");
         alert(slide_index);
     } else {
+        alert("тач");
         alert(event.changedTouches[0].clientX);
         alert(startX);
         if (event.changedTouches[0].clientX - startX < 0) {

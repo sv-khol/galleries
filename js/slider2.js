@@ -57,6 +57,7 @@ dots[0].classList.add("red");
 
 /*=======================================*/
 function moveSlider() {
+    alert(slide_index);
     slide_list.classList.add("tr");
     slide_list.style.left = `${
         -slider.clientWidth * slide_index - gap * slide_index

@@ -195,7 +195,7 @@ slider.addEventListener(`touchstart`, (event) => {
 });
 
 slider.addEventListener(`touchend`, (event) => {
-    alert(index);
+    alert(slide_index);
 
     if (event.target.classList.contains("slider__but-prev")) {
         slide_index--;
@@ -203,7 +203,7 @@ slider.addEventListener(`touchend`, (event) => {
     } else if (event.target.classList.contains("slider__but-next")) {
         slide_index++;
         alert("next");
-        alert(index);
+        alert(slide_index);
     } else {
         alert(event.changedTouches[0].clientX);
         alert(startX);

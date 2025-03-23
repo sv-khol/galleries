@@ -189,8 +189,7 @@ slide_list.addEventListener(`dragend`, (event) => {
 });
 
 /*=============== TOUCH ==========================*/
-slide__list.addEventListener(`touchstart`, (event) => {
-    event.preventDefault();
+slider.addEventListener(`touchstart`, (event) => {
     event.currentTarget.style.cursor = "grab";
     startX = event.changedTouches[0].clientX;
     // alert("start 2", startX);
@@ -198,8 +197,8 @@ slide__list.addEventListener(`touchstart`, (event) => {
 // slider.addEventListener("touchmove", (event) => {
 //     alert("По мне ведут пальцем");
 // });
-slide__list.addEventListener(`touchend`, (event) => {
-    event.preventDefault();
+slider.addEventListener(`touchend`, (event) => {
+    alert(event.target);
     if (event.changedTouches[0].clientX - startX < 0) {
         slide_index++;
     } else {

@@ -82,7 +82,6 @@ document.querySelector(".slider").addEventListener("click", (evt) => {
     console.log(slide_index);
 
     if (evt.target.classList.contains("slider__but-prev")) {
-        alert("but click");
         if (flag) {
             console.log(flag);
             moveSliderSilent();
@@ -104,7 +103,6 @@ document.querySelector(".slider").addEventListener("click", (evt) => {
             dots[slide_index - 1].classList.add("red");
         }
     } else if (evt.target.classList.contains("slider__but-next")) {
-        alert("but click next");
         if (flag) {
             console.log(flag);
             moveSliderSilent();
@@ -198,8 +196,6 @@ slider.addEventListener(`touchstart`, (event) => {
 });
 
 slider.addEventListener(`touchend`, (event) => {
-    alert(slide_index);
-
     if (
         !event.target.classList.contains("slider__but-next") &&
         !event.target.classList.contains("slider__but-prev")
@@ -216,6 +212,4 @@ slider.addEventListener(`touchend`, (event) => {
     moveSlider();
     clear();
     dots[slide_index - 1].classList.add("red");
-    // alert(event.changedTouches[0].clientX);
-    // alert(startX);
 });

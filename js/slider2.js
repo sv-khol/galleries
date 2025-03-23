@@ -198,7 +198,7 @@ slider.addEventListener(`touchstart`, (event) => {
 //     alert("По мне ведут пальцем");
 // });
 slider.addEventListener(`touchend`, (event) => {
-    alert(event.target);
+    alert(event.target.className);
     if (event.changedTouches[0].clientX - startX < 0) {
         slide_index++;
     } else {

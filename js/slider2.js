@@ -192,13 +192,10 @@ slide_list.addEventListener(`dragend`, (event) => {
 slider.addEventListener(`touchstart`, (event) => {
     event.currentTarget.style.cursor = "grab";
     startX = event.changedTouches[0].clientX;
-    // alert("start 2", startX);
 });
-// slider.addEventListener("touchmove", (event) => {
-//     alert("По мне ведут пальцем");
-// });
+
 slider.addEventListener(`touchend`, (event) => {
-    alert(event.target.classList);
+    alert(index);
 
     if (event.target.classList.contains("slider__but-prev")) {
         slide_index--;
@@ -206,6 +203,7 @@ slider.addEventListener(`touchend`, (event) => {
     } else if (event.target.classList.contains("slider__but-next")) {
         slide_index++;
         alert("next");
+        alert(index);
     } else {
         alert(event.changedTouches[0].clientX);
         alert(startX);

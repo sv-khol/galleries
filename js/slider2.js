@@ -82,6 +82,7 @@ document.querySelector(".slider").addEventListener("click", (evt) => {
     console.log(slide_index);
 
     if (evt.target.classList.contains("slider__but-prev")) {
+        alert("but click");
         if (flag) {
             console.log(flag);
             moveSliderSilent();
@@ -103,7 +104,7 @@ document.querySelector(".slider").addEventListener("click", (evt) => {
             dots[slide_index - 1].classList.add("red");
         }
     } else if (evt.target.classList.contains("slider__but-next")) {
-        console.log("but click");
+        alert("but click next");
         if (flag) {
             console.log(flag);
             moveSliderSilent();

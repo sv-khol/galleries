@@ -8,9 +8,13 @@ let slide_index = 1;
 //     window.getComputedStyle(document.querySelector(".slide__list")).width
 // );
 let gap = 30;
+let flag = false;
+
 moveSliderSilent();
 
 let startX = 0;
+
+const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 /*=============== ADD DOP SLIDES ======================================*/
 const dop0 = Array.from(
@@ -75,67 +79,63 @@ window.addEventListener("resize", moveSlider);
 
 /*============== CLICK BUTTONS ===========================*/
 
-let flag = false;
-
 document.querySelector(".slider").addEventListener("click", (evt) => {
-    console.log(slide_index);
+    if (!flag) {
+        if (evt.target.classList.contains("slider__but-prev")) {
+            if (slide_index == 1) {
+                (async () => {
+                    slide_index--;
+                    moveSlider();
+                    slide_index = slides_number;
+                    flag = true;
+                    console.log("==", slide_index, flag);
+                    clear();
+                    dots[slide_index - 1].classList.add("red");
 
-    if (evt.target.classList.contains("slider__but-prev")) {
-        if (flag) {
-            console.log(flag);
-            moveSliderSilent();
-            flag = false;
+                    await sleep(2000);
+
+                    flag = false;
+                    moveSliderSilent();
+                })();
+            } else {
+                slide_index--;
+                moveSlider();
+                clear();
+                dots[slide_index - 1].classList.add("red");
+            }
+        } else if (evt.target.classList.contains("slider__but-next")) {
+            if (slide_index == slides_number) {
+                (async () => {
+                    slide_index++;
+                    moveSlider();
+                    console.log("==", slide_index);
+
+                    slide_index = 1;
+                    flag = true;
+                    console.log("==", slide_index, flag);
+                    clear();
+                    dots[slide_index - 1].classList.add("red");
+
+                    await sleep(2000);
+
+                    flag = false;
+                    moveSliderSilent();
+                })();
+            } else {
+                slide_index++;
+                moveSlider();
+                clear();
+                dots[slide_index - 1].classList.add("red");
+            }
+        } else {
             return;
         }
-        if (slide_index == 1) {
-            slide_index--;
-            moveSlider();
-            slide_index = slides_number;
-            flag = true;
-            console.log("==", slide_index, flag);
-            clear();
-            dots[slide_index - 1].classList.add("red");
-        } else {
-            slide_index--;
-            moveSlider();
-            clear();
-            dots[slide_index - 1].classList.add("red");
-        }
-    } else if (evt.target.classList.contains("slider__but-next")) {
-        if (flag) {
-            console.log(flag);
-            moveSliderSilent();
-            flag = false;
-            return;
-        }
-
-        if (slide_index == slides_number) {
-            slide_index++;
-            moveSlider();
-            console.log("==", slide_index);
-
-            slide_index = 1;
-            flag = true;
-            console.log("==", slide_index, flag);
-            clear();
-            dots[slide_index - 1].classList.add("red");
-        } else {
-            slide_index++;
-            moveSlider();
-            clear();
-            dots[slide_index - 1].classList.add("red");
-        }
-    } else {
-        return;
     }
-    console.log(slide_index);
 });
 
 /*============== DRAG ===========================*/
 
 slide_list.draggable = true;
-
-const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 slide_list.addEventListener(`dragstart`, (event) => {
     event.currentTarget.style.cursor = "grab";
@@ -144,46 +144,50 @@ slide_list.addEventListener(`dragstart`, (event) => {
 
 slide_list.addEventListener(`dragend`, (event) => {
     // console.dir(event);
-    if (event.clientX - startX > 0) {
-        if (slide_index == 1) {
-            (async () => {
+    if (!flag) {
+        if (event.clientX - startX > 0) {
+            if (slide_index == 1) {
+                (async () => {
+                    slide_index--;
+                    moveSlider();
+                    slide_index = slides_number;
+                    clear();
+                    dots[slide_index - 1].classList.add("red");
+
+                    await sleep(2000);
+
+                    moveSliderSilent();
+                    console.log("Проснулись! Больше ждать не нужно.");
+                })();
+            } else {
                 slide_index--;
                 moveSlider();
-                slide_index = slides_number;
                 clear();
                 dots[slide_index - 1].classList.add("red");
-
-                await sleep(2000);
-
-                moveSliderSilent();
-                console.log("Проснулись! Больше ждать не нужно.");
-            })();
+            }
         } else {
-            slide_index--;
-            moveSlider();
-            clear();
-            dots[slide_index - 1].classList.add("red");
-        }
-    } else {
-        if (slide_index == slides_number) {
-            (async () => {
+            if (slide_index == slides_number) {
+                (async () => {
+                    slide_index++;
+                    moveSlider();
+                    slide_index = 1;
+                    clear();
+                    dots[slide_index - 1].classList.add("red");
+                    flag = true;
+
+                    // Задержка в 2 секунды перед переходом на реальный №1
+                    await sleep(2000);
+
+                    flag = false;
+                    moveSliderSilent();
+                    console.log("Проснулись! Больше ждать не нужно.");
+                })();
+            } else {
                 slide_index++;
                 moveSlider();
-                slide_index = 1;
                 clear();
                 dots[slide_index - 1].classList.add("red");
-
-                // Задержка в 2 секунды перед переходом на реальный №1
-                await sleep(2000);
-
-                moveSliderSilent();
-                console.log("Проснулись! Больше ждать не нужно.");
-            })();
-        } else {
-            slide_index++;
-            moveSlider();
-            clear();
-            dots[slide_index - 1].classList.add("red");
+            }
         }
     }
 });

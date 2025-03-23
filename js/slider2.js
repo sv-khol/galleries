@@ -199,18 +199,17 @@ slider.addEventListener(`touchstart`, (event) => {
 // });
 slider.addEventListener(`touchend`, (event) => {
     alert(event.target.className);
-    if ((event.target.className = "slide")) {
+
+    if ((event.target.classList.contains = "slider__but-prev")) {
+        slide_index++;
+    } else if ((event.target.classList.contains = "slider__but-next")) {
+        slide_index--;
+    } else {
         if (event.changedTouches[0].clientX - startX < 0) {
             slide_index++;
         } else {
             slide_index--;
         }
-    }
-    if ((event.target.className = "slider__but-prev")) {
-        slide_index++;
-    }
-    if ((event.target.className = "slider__but-next")) {
-        slide_index--;
     }
     moveSlider();
     clear();

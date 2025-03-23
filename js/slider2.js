@@ -17,15 +17,15 @@ let startX = 0;
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 /*=============== ADD DOP SLIDES ======================================*/
-const dop0 = Array.from(
+let dop = Array.from(
     document.querySelectorAll(".slider .slide__list .slide")
 )[0].cloneNode(true);
-slide_list.append(dop0);
+slide_list.append(dop);
 
-const dopn = Array.from(
-    document.querySelectorAll(".slider .slide__list .slide")
-)[slides_number - 1].cloneNode(true);
-slide_list.prepend(dopn);
+dop = Array.from(document.querySelectorAll(".slider .slide__list .slide"))[
+    slides_number - 1
+].cloneNode(true);
+slide_list.prepend(dop);
 
 /*=========  добавить элемент на страницу DOTS  ===========================================*/
 
@@ -49,7 +49,6 @@ function clear() {
 
 dots.forEach(function (dot, i) {
     dot.addEventListener("click", function () {
-        console.log("dot", i);
         clear();
         dot.classList.add("red");
         slide_index = i;
@@ -88,7 +87,6 @@ document.querySelector(".slider").addEventListener("click", (evt) => {
                     moveSlider();
                     slide_index = slides_number;
                     flag = true;
-                    console.log("==", slide_index, flag);
                     clear();
                     dots[slide_index - 1].classList.add("red");
 
@@ -108,11 +106,9 @@ document.querySelector(".slider").addEventListener("click", (evt) => {
                 (async () => {
                     slide_index++;
                     moveSlider();
-                    console.log("==", slide_index);
 
                     slide_index = 1;
                     flag = true;
-                    console.log("==", slide_index, flag);
                     clear();
                     dots[slide_index - 1].classList.add("red");
 
@@ -143,7 +139,6 @@ slide_list.addEventListener(`dragstart`, (event) => {
 });
 
 slide_list.addEventListener(`dragend`, (event) => {
-    // console.dir(event);
     if (!flag) {
         if (event.clientX - startX > 0) {
             if (slide_index == 1) {
@@ -153,11 +148,12 @@ slide_list.addEventListener(`dragend`, (event) => {
                     slide_index = slides_number;
                     clear();
                     dots[slide_index - 1].classList.add("red");
+                    flag = true;
 
                     await sleep(2000);
 
+                    flag = false;
                     moveSliderSilent();
-                    console.log("Проснулись! Больше ждать не нужно.");
                 })();
             } else {
                 slide_index--;
@@ -180,7 +176,6 @@ slide_list.addEventListener(`dragend`, (event) => {
 
                     flag = false;
                     moveSliderSilent();
-                    console.log("Проснулись! Больше ждать не нужно.");
                 })();
             } else {
                 slide_index++;
